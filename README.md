@@ -5,15 +5,16 @@ Basic starter API built with [FastAPI](https://fastapi.tiangolo.com/)
 ## Quickstart
 
  * Clone this repository
- * Copy dot.env.example to .env and edit
+ * Copy dot.env.example to .env and edit. You will need to get these variables
+   into your environment. Or, optionally, enable pydantic's dotenv support:
+    - `pip install pydantic[dotenv]`
+    - Uncomment `#env_file = '.env'` in `app/config/configuration.py`
  * pip install -r reqirements.txt (preferably in a virtualenv)
- * Create the database, e.g. in psql:
-   - `create database basicapi;`
- * Copy alembic.ini.example to alembic.ini and **edit the sqlalchemy.url** to set:
-   - driver (e.g. postgresql)
-   - username
-   - password
-   - database name
+ * Copy alembic.ini.example to alembic.ini
+ * Sqlite should work as-is. Optionally, for Postgres:
+   - Create the database, e.g. in psql: `create database basicapi;`
+   - Change the <PREFIX>SQLALCHEMY_DATABASE_URI environment variable
+   - Change the sqlalchemy.url setting in alembic.ini
  * Run alembic migrations:
    - `alembic upgrade head`
  * Create your first superuser:

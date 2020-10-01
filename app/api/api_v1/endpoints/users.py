@@ -21,7 +21,7 @@ def read_users(
     """
     Retrieve users.
     """
-    users = orm.models.user.get_multi(db, skip=skip, limit=limit)
+    users = orm.users.get_multi(db, skip=skip, limit=limit)
     return users
 
 

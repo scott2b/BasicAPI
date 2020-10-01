@@ -2,7 +2,14 @@
 
 [alembic]
 script_location = alembic
-sqlalchemy.url = driver://user:pass@localhost/dbname
+
+# sqlalchemy.url should match the <PREFIX>_SQLALCHEMY_DATABASE_URI setting
+
+# SQLite:
+sqlalchemy.url = sqlite:///basicapi.db
+
+# Posgres:
+#sqlalchemy.url = postgresql://user:pass@localhost/dbname
 
 
 [post_write_hooks]

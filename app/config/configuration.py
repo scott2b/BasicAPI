@@ -1,6 +1,6 @@
 import secrets
 from typing import Any, Dict, List, Optional, Union
-from pydantic import AnyHttpUrl, BaseSettings, EmailStr, PostgresDsn, validator
+from pydantic import AnyHttpUrl, BaseSettings, EmailStr, PostgresDsn, validator, ValidationError, AnyUrl
 
 
 class Settings(BaseSettings):
@@ -24,23 +24,11 @@ class Settings(BaseSettings):
         raise ValueError(v)
 
     PROJECT_NAME: str
-    POSTGRES_SERVER: str
-    POSTGRES_USER: str
-    POSTGRES_PASSWORD: str
-    POSTGRES_DB: str
-    SQLALCHEMY_DATABASE_URI: Optional[PostgresDsn] = None
 
-    @validator("SQLALCHEMY_DATABASE_URI", pre=True)
-    def assemble_db_connection(cls, v: Optional[str], values: Dict[str, Any]) -> Any:
-        if isinstance(v, str):
-            return v
-        return PostgresDsn.build(
-            scheme="postgresql",
-            user=values.get("POSTGRES_USER"),
-            password=values.get("POSTGRES_PASSWORD"),
-            host=values.get("POSTGRES_SERVER"),
-            path=f"/{values.get('POSTGRES_DB') or ''}",
-        )
+    # TODO: Create a validator for this. Pydantic provides a PostgresDsn, but
+    # not other DSN types. We want to at least support sqlite here, so just
+    # making this a non-validated string for now.
+    SQLALCHEMY_DATABASE_URI: str = None
 
     SMTP_TLS: bool = True
     SMTP_PORT: Optional[int] = None
@@ -73,6 +61,7 @@ class Settings(BaseSettings):
     DOCSET: str = 'full' # some docs are flagged only to show in full mode
 
     class Config:
+        #env_file = '.env'
         case_sensitive = False # Has no effect on Windows ∴ not recommended
         env_prefix = 'BASICAPI_'
 
