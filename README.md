@@ -19,7 +19,12 @@ Basic starter API built with [FastAPI](https://fastapi.tiangolo.com/)
    - `alembic upgrade head`
  * Create your first superuser:
    - `python -m app.tools users create --superuser MyName myuser@example.com mypassword`
- * uvicorn app.main:app --reload 
+ * Run the application:
+   - `uvicorn app.main:app --reload`
+ * Go to:
+   - [http://127.0.0.1:8000](http://127.0.0.1:8000) or:
+   - [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) for the interactive docs
+
 
 To run the dashboard:
  * cd dashboard
