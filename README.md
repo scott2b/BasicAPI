@@ -29,8 +29,8 @@ Basic starter API built with [FastAPI](https://fastapi.tiangolo.com/)
 To run the dashboard:
  * cd dashboard
  * npm install
- * npm run start
-
+ * npm run serve
+ * go to [http://localhost:8080/](http://localhost:8080/)
 
 ## About
 

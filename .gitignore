@@ -1,3 +1,7 @@
+# dashboard application
+node_modules/
+package-lock.json
+
 # alembic
 alembic.ini
 
