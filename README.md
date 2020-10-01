@@ -35,6 +35,13 @@ There are really no other assumptions made about your stack. If you are looking
 for something that is full-featured and ready to deploy, please take a look at the
 original full-stack cookie cutter.
 
+### Features
+
+ * User object with superuser distinction
+ * oauth / jwt based authentication
+ * migrations with alembic
+ * reference client Vue application (dashboard, which is the frontend from the full-stack)
+
 
 ## The API
 
