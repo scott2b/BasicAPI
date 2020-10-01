@@ -16,6 +16,8 @@ Basic starter API built with [FastAPI](https://fastapi.tiangolo.com/)
    - database name
  * Run alembic migrations:
    - `alembic upgrade head`
+ * Create your first superuser:
+   - `python -m app.tools users create --superuser MyName myuser@example.com mypassword`
  * uvicorn app.main:app --reload 
 
 To run the dashboard:
@@ -111,6 +113,7 @@ long-term manageble to me. The current package structure breaks down as:
  * `mail`: email handling
  * `orm`: All the databse stuff, consolidating what was in db, crud, and models
  * `schemas`: pydantic object schemata. See the FastAPI docs for more info on how these are used
+ * `tools.py`: Command line management tools. Right now just user creation.
 
 
 ## Managing data migrations
