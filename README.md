@@ -5,10 +5,17 @@ Basic starter API built with [FastAPI](https://fastapi.tiangolo.com/)
 ## Quickstart
 
  * Clone this repository
- * pip install -r reqirements.txt (preferably in a virtualenv)
  * Copy dot.env.example to .env and edit
- * Copy alembic.ini.example to alembic.ini and edit the sqlalchemy.url
- * Run alembic migrations
+ * pip install -r reqirements.txt (preferably in a virtualenv)
+ * Create the database, e.g. in psql:
+   - `create database basicapi;`
+ * Copy alembic.ini.example to alembic.ini and **edit the sqlalchemy.url** to set:
+   - driver (e.g. postgresql)
+   - username
+   - password
+   - database name
+ * Run alembic migrations:
+   - `alembic upgrade head`
  * uvicorn app.main:app --reload 
 
 To run the dashboard:
