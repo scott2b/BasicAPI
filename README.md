@@ -111,3 +111,28 @@ long-term manageble to me. The current package structure breaks down as:
  * `mail`: email handling
  * `orm`: All the databse stuff, consolidating what was in db, crud, and models
  * `schemas`: pydantic object schemata. See the FastAPI docs for more info on how these are used
+
+
+## Managing data migrations
+
+See the [Alembic docs](https://alembic.sqlalchemy.org) for details.
+
+Essentially:
+
+To autogenerate migrations:
+
+```
+ $ alembic revision --autogenerate -m "my migration message"
+```
+
+Or to generate a migration scaffolding that you complete yourself:
+
+```
+ $ alembic revision -m "my migration message"
+```
+
+To migrate to the latest version:
+
+```
+ $ alembic upgrade head
+```
