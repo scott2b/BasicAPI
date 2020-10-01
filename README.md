@@ -41,14 +41,14 @@ cookiecutter.
 The full stack cookie cutter is a very heavy stack which makes a LOT of assumptions,
 particularly with respect to deployment configuration.
 
-This project slims it down to the bare essentials. The following are required:
+This project slims it down to the bare essentials. SQLite is supported out of
+the box, and Postgres support simply requires changing the database URIs in
+the configs. Theoretically, any database supported by SQLAlchemy should work.
 
- * SQLAlchemy + postgres as the database, although postgres should not be a strict
-   requirement in theory.
-
-There are really no other assumptions made about your stack. If you are looking
-for something that is full-featured and ready to deploy, please take a look at the
-original full-stack cookie cutter.
+Other than having some kind of relational database, there are really no other
+assumptions made about your stack. If you are looking for something that is
+more full-featured and ready to deploy, please take a look at the original
+full-stack cookie cutter.
 
 ### Features
 
